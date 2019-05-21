@@ -109,8 +109,10 @@ module.exports = class Curation {
       case "CURATION_FOR_ME":
       case "CURATION_GAMES":
       case "CURATION_SOMEONE_ELSE":
-      response = Response.genText(i18n.__("curation.a", "curation.b")
-        ),
+      response =
+      [
+        Response.genText(i18n.__("curation.a")),
+        Response.genText(i18n.__("curation.b")),
         response = Response.genQuickReply(i18n.__("curation.c"), [
           {
             title: i18n.__("curation.work"),
@@ -120,7 +122,8 @@ module.exports = class Curation {
             title: i18n.__("curation.dinner"),
             payload: "CURATION_OCASION_DINNER"
           }
-        ]);
+        ])
+      ];
         break;
 
 
