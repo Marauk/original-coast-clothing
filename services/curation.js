@@ -163,6 +163,28 @@ module.exports = class Curation {
       case "CURATION_BUDGET_20_DINNER":
       case "CURATION_BUDGET_30_DINNER":
       case "CURATION_BUDGET_50_DINNER":
+      response = Response.genQuickReply(i18n.__("curation.occ"), [
+        {
+          title: i18n.__("curation.integrated"),
+          payload: "CURATION_INTEGRATED"
+        },
+        {
+          title: i18n.__("curation.standalone"),
+          payload: "CURATION_STANDALONE"
+        }
+      ]);
+      break;
+
+
+
+      case "CURATION_STANDALONE":
+      case "CURATION_INTEGRATED":
+        response = Response.genText(i18n.__("curation.party", {
+              userFirstName: this.user.firstName
+            })
+          );
+        break;
+
       case "CURATION_BUDGET_20_PARTY":
       case "CURATION_BUDGET_30_PARTY":
       case "CURATION_BUDGET_50_PARTY":
