@@ -121,69 +121,60 @@ module.exports = class Curation {
         ]);
         break;
 
-      case "CURATION_OCASION_WORK":
-        // Store the user budget preference here
-        response = Response.genQuickReply(i18n.__("curation.price"), [
-          {
-            title: "iOS",
-            payload: "CURATION_BUDGET_20_WORK"
-          },
-          {
-            title: "Android",
-            payload: "CURATION_BUDGET_30_WORK"
-          },
-          {
-            title: "Cross-platform",
-            payload: "CURATION_BUDGET_50_WORK"
-          }
-        ]);
-        break;
 
       case "CURATION_OCASION_DINNER":
+      case "CURATION_OCASION_WORK":
         // Store the user budget preference here
-        response = Response.genQuickReply(i18n.__("curation.price"), [
+        response = Response.genQuickReply(i18n.__("curation.occ"), [
           {
-            title: "iOS",
-            payload: "CURATION_BUDGET_20_DINNER"
+            title: i18n.__("curation.integrated"),
+            payload: "CURATION_INTEGRATED"
           },
           {
-            title: "Android",
-            payload: "CURATION_BUDGET_30_DINNER"
-          },
-          {
-            title: "Cross-platform",
-            payload: "CURATION_BUDGET_50_DINNER"
+            title: i18n.__("curation.standalone"),
+            payload: "CURATION_STANDALONE"
           }
         ]);
         break;
 
-      case "CURATION_BUDGET_20_WORK":
-      case "CURATION_BUDGET_30_WORK":
-      case "CURATION_BUDGET_50_WORK":
-      case "CURATION_BUDGET_20_DINNER":
-      case "CURATION_BUDGET_30_DINNER":
-      case "CURATION_BUDGET_50_DINNER":
-      response = Response.genQuickReply(i18n.__("curation.occ"), [
+
+
+      case "CURATION_INTEGRATED":
+      case "CURATION_STANDALONE":
+      response = Response.genQuickReply(i18n.__("curation.price"), [
         {
-          title: i18n.__("curation.integrated"),
-          payload: "CURATION_INTEGRATED"
+          title: "iOS",
+          payload: "CURATION_BUDGET_20_DINNER"
         },
         {
-          title: i18n.__("curation.standalone"),
-          payload: "CURATION_STANDALONE"
+          title: "Android",
+          payload: "CURATION_BUDGET_30_DINNER"
+        },
+        {
+          title: "Cross-platform",
+          payload: "CURATION_BUDGET_50_DINNER"
         }
       ]);
       break;
 
 
 
-      case "CURATION_STANDALONE":
-      case "CURATION_INTEGRATED":
+      case "CURATION_BUDGET_20_DINNER":
+      case "CURATION_BUDGET_30_DINNER":
+      case "CURATION_BUDGET_50_DINNER":
         response = Response.genText(i18n.__("curation.party", {
               userFirstName: this.user.firstName
             })
           );
         break;
+
+
+
+
+
+
+
+
 
       case "CURATION_BUDGET_20_PARTY":
       case "CURATION_BUDGET_30_PARTY":
