@@ -109,7 +109,7 @@ module.exports = class Curation {
       case "CURATION_FOR_ME":
       case "CURATION_GAMES":
       case "CURATION_SOMEONE_ELSE":
-        response = Response.genQuickReply(i18n.__("curation.occasion"), [
+        response = Response.genQuickReply(i18n.__("estimation"), [
           {
             title: i18n.__("curation.work"),
             payload: "CURATION_OCASION_WORK"
@@ -167,10 +167,6 @@ module.exports = class Curation {
             })
           );
         break;
-
-
-
-
 
 
 
