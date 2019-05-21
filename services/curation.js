@@ -163,11 +163,17 @@ module.exports = class Curation {
       case "CURATION_BUDGET_20_DINNER":
       case "CURATION_BUDGET_30_DINNER":
       case "CURATION_BUDGET_50_DINNER":
-      case "CURATION_BUDGET_20_PARTY":
-      case "CURATION_BUDGET_30_PARTY":
-      case "CURATION_BUDGET_50_PARTY":
-        response = this.genCurationResponse(payload);
-        break;
+      response = Response.genQuickReply(i18n.__("curation.occasion"), [
+        {
+          title: i18n.__("curation.standalone"),
+          payload: "CURATION_OCASION_PARTY"
+        },
+        {
+          title: i18n.__("curation.integrated"),
+          payload: "CURATION_OCASION_PARTY"
+        }
+      ]);
+      break;
 
       case "CURATION_OTHER_STYLE":
         // Build the recommendation logic here
