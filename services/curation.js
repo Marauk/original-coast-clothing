@@ -117,14 +117,6 @@ module.exports = class Curation {
           {
             title: i18n.__("curation.dinner"),
             payload: "CURATION_OCASION_DINNER"
-          },
-          {
-            title: i18n.__("curation.party"),
-            payload: "CURATION_OCASION_PARTY"
-          },
-          {
-            title: i18n.__("curation.sales"),
-            payload: "CARE_SALES"
           }
         ]);
         break;
@@ -133,15 +125,15 @@ module.exports = class Curation {
         // Store the user budget preference here
         response = Response.genQuickReply(i18n.__("curation.price"), [
           {
-            title: "~ $20",
+            title: "iOS",
             payload: "CURATION_BUDGET_20_WORK"
           },
           {
-            title: "~ $30",
+            title: "Android",
             payload: "CURATION_BUDGET_30_WORK"
           },
           {
-            title: "+ $50",
+            title: "Cross-platform",
             payload: "CURATION_BUDGET_50_WORK"
           }
         ]);
@@ -151,34 +143,16 @@ module.exports = class Curation {
         // Store the user budget preference here
         response = Response.genQuickReply(i18n.__("curation.price"), [
           {
-            title: "~ $20",
+            title: "iOS",
             payload: "CURATION_BUDGET_20_DINNER"
           },
           {
-            title: "~ $30",
+            title: "Android",
             payload: "CURATION_BUDGET_30_DINNER"
           },
           {
-            title: "+ $50",
+            title: "Cross-platform",
             payload: "CURATION_BUDGET_50_DINNER"
-          }
-        ]);
-        break;
-
-      case "CURATION_OCASION_PARTY":
-        // Store the user budget preference here
-        response = Response.genQuickReply(i18n.__("curation.price"), [
-          {
-            title: "~ $20",
-            payload: "CURATION_BUDGET_20_PARTY"
-          },
-          {
-            title: "~ $30",
-            payload: "CURATION_BUDGET_30_PARTY"
-          },
-          {
-            title: "+ $50",
-            payload: "CURATION_BUDGET_50_PARTY"
           }
         ]);
         break;
