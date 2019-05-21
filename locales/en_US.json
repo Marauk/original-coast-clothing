@@ -24,7 +24,7 @@
   },
   "curation": {
     "prompt": "What kind of mobile app do you want?",
-    "occasion": "Great! Now you can use the menu to the left of Composer to see similar projects we've done before or continue with our chatbot to estimate your own project. Let's get started. First, would you like a full-fledged product or an MVP to test your idea?",
+    "occasion": "Great! Now you can use the menu to the left of the composer to see similar projects we've done before or continue with our chatbot to estimate your own project. Let's get started. First, would you like a full-fledged product or an MVP to test your idea?",
     "price": "And finally, what mobile platform would you like for your app?",
     "me": "IoT",
     "someone": "AR",
@@ -36,7 +36,7 @@
     "title": "Summer collection 2019",
     "subtitle": "Featured outfit",
     "show": "Another look",
-    "occ": "Would you like a standalone application or integrated with other systems?",
+    "occ": "Would you like a standalone application or an application integrated with other systems?",
     "standalone": "Standalone",
     "integrated": "Integrated"
 
