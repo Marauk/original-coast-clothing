@@ -11,8 +11,8 @@
     "start_over": "Start over"
   },
   "get_started": {
-    "welcome": "Hi {{userFirstName}}! Welcome to XIM.",
-    "guidance": "At any time, use the menu below to go to our website and find even more information on our services.",
+    "welcome": "Perfect!",
+    "guidance": "So let's start.",
     "help": "What are you interested in?"
   },
   "leadgen": {
@@ -23,7 +23,7 @@
     "coupon": "Added your coupon to this thread, you can now check out the discounted summer collection"
   },
   "curation": {
-    "prompt": "What kind of mobile app do you want?",
+    "prompt": "What kind of mobile apps do you want?",
     "occasion": "Great! Now you can use the menu to the left of the composer to see similar projects we've done before or continue with our chatbot to estimate your own project. Let's get started. First, would you like a full-fledged product or an MVP to test your idea?",
     "price": "And finally, what mobile platform would you like for your app?",
     "me": "IoT",
