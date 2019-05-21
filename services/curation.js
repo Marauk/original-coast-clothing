@@ -109,7 +109,9 @@ module.exports = class Curation {
       case "CURATION_FOR_ME":
       case "CURATION_GAMES":
       case "CURATION_SOMEONE_ELSE":
-        response = Response.genQuickReply(i18n.__("curation.a", "curation.b", "curation.c"), [
+      response = Response.genText(i18n.__("curation.a", "curation.b")
+        ),
+        response = Response.genQuickReply(i18n.__("curation.c"), [
           {
             title: i18n.__("curation.work"),
             payload: "CURATION_OCASION_WORK"
