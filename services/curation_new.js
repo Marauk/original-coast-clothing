@@ -1,4 +1,12 @@
-
+/**
+ * Copyright 2019-present, Facebook, Inc. All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * Messenger For Original Coast Clothing
+ * https://developers.facebook.com/docs/messenger-platform/getting-started/sample-apps/original-coast-clothing
+ */
 
 "use strict";
 
@@ -18,26 +26,84 @@ module.exports = class Curation {
     let outfit;
 
     switch (payload) {
+      case "F8-2019":
+        response = [
+          Response.genText(
+            i18n.__("get_started.f8-welcome", {
+              userFirstName: this.user.firstName
+            })
+          ),
+          Response.genText(i18n.__("get_started.f8-guidance")),
+          Response.genQuickReply(i18n.__("get_started.f8-help"), [
+            {
+              title: i18n.__("menu.suggestion"),
+              payload: "CURATION"
+            },
+            {
+              title: i18n.__("menu.help"),
+              payload: "CARE_HELP"
+            }
+          ])
+        ];
+        break;
+      case "SUMMER_COUPON":
+        response = [
+          Response.genText(
+            i18n.__("leadgen.promo", {
+              userFirstName: this.user.firstName
+            })
+          ),
+          Response.genGenericTemplate(
+            `${config.appUrl}/coupon.png`,
+            i18n.__("leadgen.title"),
+            i18n.__("leadgen.subtitle"),
+            [Response.genPostbackButton(i18n.__("leadgen.apply"), "COUPON_50")]
+          )
+        ];
+        break;
+
+      case "COUPON_50":
+        outfit = `${this.user.gender}-${this.randomOutfit()}`;
+
+        response = [
+          Response.genText(i18n.__("leadgen.coupon")),
+          Response.genGenericTemplate(
+            `${config.appUrl}/styles/${outfit}.jpg`,
+            i18n.__("curation.title"),
+            i18n.__("curation.subtitle"),
+            [
+              Response.genWebUrlButton(
+                i18n.__("curation.shop"),
+                `${config.shopUrl}/products/${outfit}`
+              ),
+              Response.genPostbackButton(
+                i18n.__("curation.show"),
+                "CURATION_OTHER_STYLE"
+              ),
+              Response.genPostbackButton(
+                i18n.__("curation.sales"),
+                "CARE_SALES"
+              )
+            ]
+          )
+        ];
+        break;
+
       case "CURATION":
         response = Response.genQuickReply(i18n.__("curation.prompt"), [
           {
-            title: i18n.__("curation.ar"),
-            payload: "CURATION_AR"
+            title: i18n.__("curation.me"),
+            payload: "CURATION_FOR_ME"
           },
           {
-            title: i18n.__("curation.iot"),
-            payload: "CURATION_IOT"
-          },
-          {
-            title: i18n.__("curation.games"),
-            payload: "CURATION_GAMES"
+            title: i18n.__("curation.someone"),
+            payload: "CURATION_SOMEONE_ELSE"
           }
         ]);
         break;
 
-      case "CURATION_AR":
-      case "CURATION_IOT":
-      case "CURATION_GAMES":
+      case "CURATION_FOR_ME":
+      case "CURATION_SOMEONE_ELSE":
         response = Response.genQuickReply(i18n.__("curation.occasion"), [
           {
             title: i18n.__("curation.work"),
@@ -46,6 +112,14 @@ module.exports = class Curation {
           {
             title: i18n.__("curation.dinner"),
             payload: "CURATION_OCASION_DINNER"
+          },
+          {
+            title: i18n.__("curation.party"),
+            payload: "CURATION_OCASION_PARTY"
+          },
+          {
+            title: i18n.__("curation.sales"),
+            payload: "CARE_SALES"
           }
         ]);
         break;
@@ -60,13 +134,10 @@ module.exports = class Curation {
           {
             title: "~ $30",
             payload: "CURATION_BUDGET_30_WORK"
-<<<<<<< HEAD
           },
           {
             title: "+ $50",
             payload: "CURATION_BUDGET_50_WORK"
-=======
->>>>>>> parent of af433c2... app/mvp
           }
         ]);
         break;
@@ -77,7 +148,6 @@ module.exports = class Curation {
           {
             title: "~ $20",
             payload: "CURATION_BUDGET_20_DINNER"
-<<<<<<< HEAD
           },
           {
             title: "~ $30",
@@ -86,28 +156,37 @@ module.exports = class Curation {
           {
             title: "+ $50",
             payload: "CURATION_BUDGET_50_DINNER"
-=======
-          },
-          {
-            title: "~ $30",
-            payload: "CURATION_BUDGET_30_DINNER"
->>>>>>> parent of af433c2... app/mvp
           }
         ]);
         break;
 
+      case "CURATION_OCASION_PARTY":
+        // Store the user budget preference here
+        response = Response.genQuickReply(i18n.__("curation.price"), [
+          {
+            title: "~ $20",
+            payload: "CURATION_BUDGET_20_PARTY"
+          },
+          {
+            title: "~ $30",
+            payload: "CURATION_BUDGET_30_PARTY"
+          },
+          {
+            title: "+ $50",
+            payload: "CURATION_BUDGET_50_PARTY"
+          }
+        ]);
+        break;
 
       case "CURATION_BUDGET_20_WORK":
       case "CURATION_BUDGET_30_WORK":
-<<<<<<< HEAD
       case "CURATION_BUDGET_50_WORK":
       case "CURATION_BUDGET_20_DINNER":
       case "CURATION_BUDGET_30_DINNER":
       case "CURATION_BUDGET_50_DINNER":
-=======
-      case "CURATION_BUDGET_20_DINNER":
-      case "CURATION_BUDGET_30_DINNER":
->>>>>>> parent of af433c2... app/mvp
+      case "CURATION_BUDGET_20_PARTY":
+      case "CURATION_BUDGET_30_PARTY":
+      case "CURATION_BUDGET_50_PARTY":
         response = this.genCurationResponse(payload);
         break;
 
@@ -169,7 +248,7 @@ module.exports = class Curation {
   }
 
   randomOutfit() {
-    let occasion = ["work", "party"];
+    let occasion = ["work", "party", "dinner"];
     let randomIndex = Math.floor(Math.random() * occasion.length);
 
     return occasion[randomIndex];
