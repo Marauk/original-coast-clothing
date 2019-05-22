@@ -30,10 +30,10 @@
   "curation": {
     "prompt": "What kind of mobile apps do you want?",
     "occasion": "Great! Now you can use the menu to the left of the composer to see similar projects we've done before or continue with our chatbot to estimate your own project. Let's get started. First, would you like a full-fledged product or an MVP to test your idea?",
-    "price": "And finally, what mobile platform would you like for your app?",
-    "a": "Great! Now you can use the menu to the left of the composer to check our portfolio.",
-    "b": "Or you can continue with our chatbot to help us estimate your own project.",
-    "c": "First, would you like a full-fledged product or an MVP to test your idea?",
+    "price": "And finally, what mobile platform do you prefer for your app?",
+    "a": "Great! Now you can continue with our chatbot to help us estimate your own project.",
+    "b": "(Or use the menu to the left of the composer to check our portfolio.)",
+    "c": "First, do you need a full-fledged product or an MVP to test your idea?",
     "me": "IoT",
     "someone": "AR",
     "games": "Games",
@@ -44,7 +44,7 @@
     "title": "Summer collection 2019",
     "subtitle": "Featured outfit",
     "show": "Another look",
-    "occ": "Would you like a standalone application or an application integrated with other systems?",
+    "occ": "Will it be a standalone application or an application integrated with other systems?",
     "standalone": "Standalone",
     "integrated": "Integrated"
 
